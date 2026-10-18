@@ -1,0 +1,28 @@
+.raiz {
+    -fx-background-color: #f4f5f7;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+}
+
+.tarjeta {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #e1e4e8;
+    -fx-border-radius: 8;
+    -fx-padding: 10 16;
+    -fx-min-width: 160;
+}
+.tarjeta.aviso { -fx-border-color: #f0b429; }
+.tarjeta-titulo { -fx-text-fill: #6a737d; -fx-font-size: 12px; }
+.tarjeta-valor { -fx-font-size: 20px; -fx-font-weight: bold; }
+
+.subtitulo { -fx-font-weight: bold; -fx-font-size: 14px; }
+
+.button { -fx-background-radius: 6; -fx-cursor: hand; }
+.button.primario { -fx-background-color: #2563eb; -fx-text-fill: white; }
+
+.table-row-cell.stock-bajo { -fx-background-color: #fff4d6; }
+.table-row-cell.stock-bajo:selected { -fx-background-color: #2563eb; }
+
+.entrada { -fx-text-fill: #1a7f37; }
+.salida { -fx-text-fill: #cf222e; }

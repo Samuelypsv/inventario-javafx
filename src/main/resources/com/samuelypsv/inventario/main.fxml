@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.samuelypsv.inventario.ui.MainController" styleClass="raiz">
+    <top>
+        <VBox spacing="10">
+            <padding><Insets top="14" right="16" bottom="10" left="16"/></padding>
+            <HBox spacing="16" styleClass="tarjetas">
+                <VBox styleClass="tarjeta"><Label text="Productos" styleClass="tarjeta-titulo"/><Label fx:id="lblProductos" styleClass="tarjeta-valor"/></VBox>
+                <VBox styleClass="tarjeta"><Label text="Unidades" styleClass="tarjeta-titulo"/><Label fx:id="lblUnidades" styleClass="tarjeta-valor"/></VBox>
+                <VBox styleClass="tarjeta"><Label text="Valor del stock" styleClass="tarjeta-titulo"/><Label fx:id="lblValor" styleClass="tarjeta-valor"/></VBox>
+                <VBox styleClass="tarjeta, aviso"><Label text="Stock bajo" styleClass="tarjeta-titulo"/><Label fx:id="lblBajo" styleClass="tarjeta-valor"/></VBox>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="txtBuscar" promptText="Buscar por código o nombre" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="cmbCategoria" prefWidth="170"/>
+                <CheckBox fx:id="chkStockBajo" text="Solo stock bajo"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Nuevo" onAction="#nuevo" styleClass="primario"/>
+                <Button fx:id="btnEditar" text="Editar" onAction="#editar"/>
+                <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar"/>
+                <Button fx:id="btnEntrada" text="+ Entrada" onAction="#entrada"/>
+                <Button fx:id="btnSalida" text="− Salida" onAction="#salida"/>
+                <Button text="Exportar CSV" onAction="#exportar"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.7">
+            <padding><Insets right="16" bottom="16" left="16"/></padding>
+            <TableView fx:id="tabla">
+                <columns>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="90"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="220"/>
+                    <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="130"/>
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90"/>
+                    <TableColumn fx:id="colStock" text="Stock" prefWidth="70"/>
+                    <TableColumn fx:id="colMinimo" text="Mínimo" prefWidth="70"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN"/></columnResizePolicy>
+                <placeholder><Label text="No hay productos que coincidan"/></placeholder>
+            </TableView>
+            <VBox spacing="8">
+                <padding><Insets left="12"/></padding>
+                <Label text="Historial de movimientos" styleClass="subtitulo"/>
+                <ListView fx:id="lstHistorial" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="Selecciona un producto"/></placeholder>
+                </ListView>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
